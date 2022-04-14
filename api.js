@@ -9,7 +9,7 @@ app.use(function (req, res, next) {
   const corsWhiteList = [
     "https://react-indian-tourism-app.herokuapp.com",
     "https://localhost:3000",
-    "https://react-tourism-app.vercel.app"
+    "https://react-tourism-arn0fgmmi-anand611.vercel.app"
     ]
     
   if(corsWhiteList.indexOf(req.headers.origin) !== -1){
