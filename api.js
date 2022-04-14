@@ -6,9 +6,17 @@ const app = express()
 app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
+  const corsWhiteList = [
+    "https://react-indian-tourism-app.herokuapp.com/",
+    "https://localhost:3000",
+    "https://react-tourism-app.vercel.app/"
+    ]
+    
+  if(corsWhiteList.indexOf(req.headers.origin) !== -1){
+    
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origins);
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -21,6 +29,7 @@ app.use(function (req, res, next) {
   //res.setHeader('Access-Control-Allow-Credentials', true);
 
   // Pass to next layer of middleware
+  }
   next();
 });
 
